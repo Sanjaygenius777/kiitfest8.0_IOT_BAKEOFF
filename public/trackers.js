@@ -23,11 +23,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // Load the first question
     function loadQuestion() {
         if (currentQuestionIndex < questions.length) {
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
             questionLabel.textContent = (currentQuestionIndex + 1) + ". " + questions[currentQuestionIndex];
             answerInput.value = ""; // Clear input field
             answerInput.focus(); // Auto-focus input field
         } else {
-            document.querySelector(".Question").innerHTML = "<h2>Thank you for completing the quiz!</h2>";
+    document.removeEventListener("visibilitychange", handleVisibilityChange);
+
+            window.location.href = "/logout";
         }
     }
 
@@ -59,13 +63,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+    // Define the handler function once
+function handleVisibilityChange() {
+    if (document.hidden) {
+        alert("Tab switching is not allowed!");
+    }
+}
 
-    // Prevent tab switching
-    document.addEventListener("visibilitychange", function () {
-        if (document.hidden) {
-            alert("Tab switching is not allowed!");
-        }
-    });
+
 
     // Load the first question on page load
     loadQuestion();

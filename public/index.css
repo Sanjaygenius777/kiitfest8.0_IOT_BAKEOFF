@@ -1,67 +1,138 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --primary-color: #66fcf1; /* Teal/Cyan */
+  --secondary-color: #1f2833; /* Darker background */
+  --accent-color: #45a29e; /* Muted teal for hover effects */
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to bottom, #1e1e2f, #3b3b6d);
-  color: #f0f0f0;
-  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: var(--secondary-color);
+  color: #f0f6fc;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  text-align: center;
+  overflow-x: hidden; /* Prevent horizontal scroll on animation */
 }
 
-#nav-bar {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+header {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  position: relative; /* For positioning pseudo-element */
 }
 
-#nav-bar button {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border: none;
+
+.login-btn {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-#nav-bar button:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-#iot-bakeoff-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 4rem;
-  font-weight: 700;
-  color: #00bfff;
-  text-shadow: 0 0 10px rgba(0, 191, 255, 0.7);
-}
-
-#fest-electronics {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-
-#prize-pool {
-  font-size: 1.5rem;
   font-weight: bold;
-  color: #ffd700;
+  transition: all 0.3s ease; /* All transitions for smoother effect */
+  overflow: hidden; /* For pseudo-element animation */
+  position: relative; /* For positioning pseudo-element */
 }
 
-#tagline {
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin-top: 10px;
+.login-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  box-shadow: 0 0 10px var(--primary-color); /* Glow effect */
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.hero {
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease-in-out; /* Initial fade-in animation */
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+h1 {
+  font-size: 4em; /* Larger title */
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  text-shadow: 0 0 10px var(--primary-color); /* Neon glow effect */
+  animation: neonGlow 1.5s ease-in-out infinite alternate; /* Continuous glow animation */
+}
+
+@keyframes neonGlow {
+  from {
+      text-shadow: 0 0 5px var(--primary-color);
+  }
+  to {
+      text-shadow: 0 0 15px var(--primary-color);
+  }
+}
+
+
+.tagline {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.prize {
+  font-size: 1.4em;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+}
+
+.description {
+  font-size: 1.1em;
+  margin-bottom: 40px;
+  max-width: 700px;
+  line-height: 1.6;
+  opacity: 0.8; /* Slightly less opaque */
+}
+
+.register-btn {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  overflow: hidden; /* For pseudo-element animation */
+  position: relative; /* For positioning pseudo-element */
+}
+
+.register-btn:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-2px); /* Move up slightly */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+}
+
+footer {
+  width: 100%;
+  background-color: rgba(31, 40, 51, 0.9); /* Slightly transparent */
+  padding: 20px;
+  text-align: center;
+  margin-top: auto; /* Push footer to bottom */
 }
