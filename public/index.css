@@ -1,0 +1,67 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom, #1e1e2f, #3b3b6d);
+  color: #f0f0f0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#nav-bar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#nav-bar button {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+#nav-bar button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+#iot-bakeoff-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #00bfff;
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.7);
+}
+
+#fest-electronics {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+#prize-pool {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+#tagline {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin-top: 10px;
+}

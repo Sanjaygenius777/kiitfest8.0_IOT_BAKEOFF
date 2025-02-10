@@ -1,0 +1,276 @@
+/* #background {
+    background-image: url(./THE\ IOT\ BAKEOFF.png);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(black,white);
+} */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #5f0f5f , #6531a9);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1.5s ease-in-out;
+    padding: 20px;
+    user-select: none;
+}
+  
+ /* body::before {
+    content: ""; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(./THE\ IOT\ BAKEOFF.png);
+    background-size: cover;
+    opacity: 0.5; 
+    z-index: -1; 
+     }  */
+  
+
+
+/* .body {
+    font-family:"Roboto";
+} */
+
+
+
+.Question {
+    /* border: black solid 1px; */
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 250px;
+    width: 500px;
+    justify-self: center;
+    padding-top: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0%;
+    padding-left: 10px;
+}
+
+.section {
+    background-color: #151414;
+    display: flex;
+    border: solid #2c2b2b 2px;
+    border-radius: 10px;
+    width: 200px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    color:#cdbcdf;
+    font-family: "Roboto";
+}
+
+#submit {
+    display: flex;
+    justify-self: end;
+}
+
+h1 {
+    font-family: "Merienda", serif;
+    font-optical-sizing: auto;
+    font-size:40px;
+    font-style: normal;
+    margin: 0px;
+}
+ 
+#Section{
+    padding-top: 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+} 
+
+#ques-sec{
+    height: 350px;
+}
+
+/* #login{
+    width:500px;
+    height: 200px;
+    background-color: bisque;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    justify-self: center;
+    border: solid black 2px;
+    border-radius: 20px;
+} */
+
+#nav-bar{
+    display: grid;
+    grid-template-columns: 6fr 1fr ;
+}
+
+#links{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 58px;
+    align-self: center;
+}
+a{
+  color:aliceblue;
+  font-size: medium;
+}
+
+/* Tech Trackers */
+.tec-ques{
+    display: flex;
+    flex-direction: column;
+}
+
+#tec-label{
+    margin:40px;
+
+}
+
+button{
+    margin: 10px;
+    width: 90px;
+}
+
+#button{
+    display: flex;
+    justify-content: end;
+    margin-top: 10px;
+}
+#Main{
+    width:100vw;
+    height: 100px;
+   display: flex;
+   justify-content: center;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column; /* Stack logo and title */
+    align-items: left; /* Center horizontally */
+    margin-bottom: 20px; /* Space below the logo */
+}
+
+.logo img {
+    max-width: 50px; /* Adjust as needed */
+    height: 50px;
+    margin-bottom: 10px; /* Space between image and title */
+}
+
+.logo h1 {
+    font-size: 2em; /* Adjust as needed */
+    margin: 0; /* Remove default margin */
+}
+
+#login {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    width: 300px; /* Adjust width as needed */
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+
+.input-group input {
+    width: calc(100% - 20px); /* Adjust width for padding */
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #fff; /* White underline */
+    background: transparent;
+    color: white;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: -15px;
+    left: 10px;
+    font-size: 0.8em;
+    color: #441065; /* Highlight color on focus */
+}
+
+.focus-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #331a61; /* Highlight color on focus */
+    transition: 0.3s ease all;
+}
+
+.input-group input:focus ~ .focus-border,
+.input-group input:valid ~ .focus-border {
+    width: 100%;
+}
+
+.submit-button {
+    background-color: #4548e7; /* Highlight color */
+    color: white;
+    padding: 10px 20px;
+    border: cornflowerblue;
+    align-items: center ;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s ease all;
+}
+
+.submit-button:hover {
+    background-color: #0a0315; /* Darker highlight color on hover */
+}
+.input-group label {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    pointer-events: none;
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.input-group label.hidden {
+    opacity: 0;
+}
+
+
+#userGreeting {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    color: #333;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+#userGreeting:hover {
+    background: #f5f5f5;
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Match the Following - Electronics Components</title>
+  <link rel="stylesheet" href="./match.css" />
+</head>
+<body>
+  <div id="question-part">
+    <h2>Match the Following - Electronics Components</h2>
+
+    <!-- First Container -->
+    <div class="container">
+      <table>
+        <tr>
+          <th>Column I</th>
+          <th>Column II</th>
+          <th>Your Answer</th>
+        </tr>
+        <tr>
+          <td>(a) Resistor</td>
+          <td>(p) Limits current flow</td>
+          <td>
+            <select id="q1">
+              <option value="p">(p)</option>
+              <option value="q">(q)</option>
+              <option value="r">(r)</option>
+              <option value="s">(s)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>(b) Capacitor</td>
+          <td>(q) Stores electrical energy</td>
+          <td>
+            <select id="q2">
+              <option value="p">(p)</option>
+              <option value="q">(q)</option>
+              <option value="r">(r)</option>
+              <option value="s">(s)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>(c) Inductor</td>
+          <td>(r) Stores energy in a magnetic field</td>
+          <td>
+            <select id="q3">
+              <option value="p">(p)</option>
+              <option value="q">(q)</option>
+              <option value="r">(r)</option>
+              <option value="s">(s)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>(d) Diode</td>
+          <td>(s) Allows current in one direction</td>
+          <td>
+            <select id="q4">
+              <option value="p">(p)</option>
+              <option value="q">(q)</option>
+              <option value="r">(r)</option>
+              <option value="s">(s)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>(e) Fuse</td>
+          <td>(s) Protects against overcurrent</td>
+          <td>
+            <select id="q5">
+              <option value="p">(p)</option>
+              <option value="q">(q)</option>
+              <option value="r">(r)</option>
+              <option value="s">(s)</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Second Container -->
+    <div class="container">
+      <table>
+        <tr>
+          <th>Column I</th>
+          <th>Column II</th>
+          <th>Your Answer</th>
+        </tr>
+        <tr>
+          <td>(a) Transistor</td>
+          <td>(p) Amplifies signals</td>
+          <td>
+            <select id="q6">
+              <option value="p">(p)</option>
+              <option value="q">(q)</option>
+              <option value="r">(r)</option>
+              <option value="s">(s)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>(b) LED</td>
+          <td>(q) Emits light</td>
+          <td>
+            <select id="q7">
+              <option value="p">(p)</option>
+              <option value="q">(q)</option>
+              <option value="r">(r)</option>
+              <option value="s">(s)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>(c) Transformer</td>
+          <td>(r) Changes voltage levels</td>
+          <td>
+            <select id="q8">
+              <option value="p">(p)</option>
+              <option value="q">(q)</option>
+              <option value="r">(r)</option>
+              <option value="s">(s)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>(d) Fuse</td>
+          <td>(s) Protects against overcurrent</td>
+          <td>
+            <select id="q9">
+              <option value="p">(p)</option>
+              <option value="q">(q)</option>
+              <option value="r">(r)</option>
+              <option value="s">(s)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>(e) Fuse</td>
+          <td>(s) Protects against overcurrent</td>
+          <td>
+            <select id="q10">
+              <option value="p">(p)</option>
+              <option value="q">(q)</option>
+              <option value="r">(r)</option>
+              <option value="s">(s)</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div id="button">
+    <button id="submitBtn">Submit</button>
+  </div>
+  <p id="result"></p>
+
+  <script>
+
+    const ipadd='10.2.106.249';
+    document.getElementById("submitBtn").addEventListener("click", function (event) {
+      event.preventDefault();
+
+      // Collecting selected answers for all 10 questions
+      let answers = {
+        resistor: document.getElementById("q1").value,
+        capacitor: document.getElementById("q2").value,
+        inductor: document.getElementById("q3").value,
+        diode: document.getElementById("q4").value,
+        fuse1: document.getElementById("q5").value,
+        transistor: document.getElementById("q6").value,
+        led: document.getElementById("q7").value,
+        transformer: document.getElementById("q8").value,
+        fuse2: document.getElementById("q9").value,
+        fuse3: document.getElementById("q10").value
+      };
+
+      // Wrap the answers in an object with key "answers" (matching your backend)
+      let jsonData = JSON.stringify({ answers });
+
+      // Send data to the server
+      fetch(`http://${ipadd}:7000/match/submit`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: jsonData
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Optional: Log the server response or display it in the UI
+          console.log("Response:", data);
+          document.getElementById("result").innerText = "Response: " + JSON.stringify(data);
+
+          // Redirect to the next section (GET /case)
+          window.location.href = "/case";
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          document.getElementById("result").innerText = "Error submitting data!";
+        });
+    });
+  </script>
+</body>
+</html>

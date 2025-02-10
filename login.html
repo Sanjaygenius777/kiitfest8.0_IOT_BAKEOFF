@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="./style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Merienda:wght@300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="logo">
+        <h1>IOT Bake Off</h1>
+        
+    </div>
+    <div id="login">
+        <form action="/submit" method="GET">
+            <div class="input-group">
+                <input type="text" id="username" name="name" required
+                       oninput="handleInput(this, document.querySelector('label[for=\'username\']'))"
+                       onfocus="handleInput(this, document.querySelector('label[for=\'username\']'))"
+                       onblur="handleInput(this, document.querySelector('label[for=\'username\']'))">
+                <label for="username">Username</label> <span class="focus-border"></span>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" required
+                       oninput="handleInput(this, document.querySelector('label[for=\'password\']'))"
+                       onfocus="handleInput(this, document.querySelector('label[for=\'password\']'))"
+                       onblur="handleInput(this, document.querySelector('label[for=\'password\']'))">
+                <label for="password">Password</label>
+                <span class="focus-border"></span>
+            </div>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+
+        <script>
+            function handleInput(input, label) {
+                if (input.value.trim() !== "") {
+                    label.classList.add('hidden'); // Use class for smoother transition
+                } else {
+                    label.classList.remove('hidden');
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

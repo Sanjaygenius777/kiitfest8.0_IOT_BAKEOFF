@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IOT BAKEOFF</title>
+  <link rel="stylesheet" href="../IOT/public/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Merienda:wght@300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Greeting placeholder (positioned at the top right) -->
+  <div id="userGreeting" style="position: absolute; top: 10px; right: 10px; font-weight: bold;"></div>
+
+  <div id="background">
+    <div>
+      <h1>IOT BAKEOFF</h1>
+    </div>
+
+    <div id="ques-sec">
+      <div id="Section">
+        <div class="section">
+          <p><a href="/decode">Decode What I am</a></p>
+        </div>
+        <div class="section">
+          <p><a href="/match">Match the Following</a></p>
+        </div>
+        <div class="section">
+          <p><a href="/case">Case Study</a></p>
+        </div>
+        <div class="section">
+          <p><a href="/trackers">Tech Trackers</a></p>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="./index.js"></script>
+
+    <!-- Add a script to fetch and display the session username -->
+    <script>
+      fetch("/session")
+        .then(response => response.json())
+        .then(data => {
+          if (data.username) {
+            document.getElementById("userGreeting").textContent = "Hello, " + data.username;
+          }
+        })
+        .catch(error => console.error("Error fetching session data:", error));
+    </script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOT BAKEOFF</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Merienda:wght@300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="background">
+        <div id="Main">
+            <h1>Decode What I am</h1>
+        </div>
+
+
+        <div class="Question">
+            <div>
+                <form id="ques">
+                    <div id="question-part">
+                        <label id="question">What is Arduino?</label>
+                        <ul>
+                            <li>
+                                <input type="radio" id="ques1" name="ques" value="An Electronic Component">
+                                <label for="ques1">An Electronic Component</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="ques2" name="ques" value="A Hero">
+                                <label for="ques2">A Hero</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="ques3" name="ques" value="A Game">
+                                <label for="ques3">A Game</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="ques4" name="ques" value="A Verb">
+                                <label for="ques4">A Verb</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="button">
+                        <button type="submit" class="btn btn-outline-success" id="next-btn">Next</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <p id="response"></p>
+    </div>
+
+    <script src="decode.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

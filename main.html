@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Bakeoff</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #a51ba9, #3b3b6d);
+            color: #f0f0f0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #nav-bar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        #nav-bar button {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        #nav-bar button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        #iot-bakeoff-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #00bfff;
+            text-shadow: 0 0 10px rgba(0, 191, 255, 0.7);
+        }
+        #fest-electronics {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        #prize-pool {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+        #tagline {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+  <div id="nav-bar">
+    <a href="login">
+        <button id="login-button">Login</button>
+    </a>
+</div>
+    <div id="content">
+        <h1 id="iot-bakeoff-title">IOT BAKEOFF</h1>
+        <p id="fest-electronics">FEST ELECTRONICS</p>
+        <p id="prize-pool">Prize Pool: <span class="highlight">16000</span></p>
+        <p id="tagline">Come and showcase your IoT innovations. Let's build the future together!</p>
+    </div>
+
+</body>
+</html>

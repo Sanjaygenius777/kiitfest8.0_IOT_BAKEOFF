@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Leaderboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tournament Leaderboard</h1>
+        
+        <!-- Admin Controls -->
+        <div class="admin-controls">
+            <h2>Admin Controls</h2>
+            <div class="admin-form">
+                <input type="password" id="adminPassword" placeholder="Admin Password">
+                <button onclick="login()">Login</button>
+            </div>
+            <div id="adminPanel" class="hidden">
+                <div class="team-controls">
+                    <input type="text" id="teamName" placeholder="Team Name">
+                    <input type="number" id="teamScore" placeholder="Score">
+                    <button onclick="addTeam()">Add Team</button>
+                </div>
+                <div class="update-controls">
+                    <select id="teamSelect"></select>
+                    <input type="number" id="newScore" placeholder="New Score">
+                    <button onclick="updateScore()">Update Score</button>
+                    <button onclick="removeTeam()" class="delete">Remove Team</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leaderboard Display -->
+        <div class="leaderboard">
+            <div class="leaderboard-header">
+                <span>Rank</span>
+                <span>Team</span>
+                <span>Score</span>
+            </div>
+            <div id="leaderboardList"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
