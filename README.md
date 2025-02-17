@@ -4,15 +4,12 @@ This repository contains the code for the KIITFEST IOT BAKEOFF Quiz Website, an 
 
 ## Overview
 
-The KIITFEST IOT BAKEOFF Quiz Website is an interactive platform that enabled live quiz sessions. The website successfully managed live participation from 17 teams, offering real-time quizzes, dynamic leaderboards, and instant feedback to keep the competition exciting.
+The KIITFEST IOT BAKEOFF Quiz Website is an interactive platform that enabled live quiz sessions. The website successfully managed live participation from 17 teams, offering real-time quizzes and instant feedback to keep the competition exciting.
 
 ## Key Features
 
 - **Interactive Quiz Sessions:**  
   Real-time quiz rounds with timed questions and immediate feedback.
-
-- **Live Scoring & Dynamic Leaderboards:**  
-  Scores are updated live and displayed on dynamic leaderboards to track team rankings.
 
 - **Responsive Design:**  
   The website is optimized for both desktop and mobile devices, ensuring a seamless user experience on all platforms.
