@@ -4,177 +4,211 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Case Study</title>
-  <!-- You can also include an external stylesheet if you wish -->
   <style>
     :root {
-    --primary-color: #66fcf1; /* Teal/Cyan */
-    --secondary-color: #1f2833; /* Darker background */
-    --accent-color: #45a29e; /* Muted teal for hover effects */
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    background: var(--secondary-color);
-    color: #030b13;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    align-items: center;
-    text-align: center;
-    overflow-x: hidden; /* Prevent horizontal scroll on animation */
-}
-
-    #background-casestudy {
-      padding: 20px;
+      --primary-color: #66fcf1;
+      --secondary-color: #1f2833;
+      --accent-color: #45a29e;
     }
-    #nav-bar-casestudy {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    #nav-bar-casestudy h1 {
+    body {
+      font-family: 'Poppins', sans-serif;
       margin: 0;
-    }
-    #Section {
+      background: var(--secondary-color);
+      color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
+      text-align: center;
     }
-    /* Button to trigger case generation */
-    #generateCase {
-      padding: 10px 20px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-    #generateCase:hover {
-      background-color: #218838;
-    }
-    /* Case container styling */
     #case-container {
       max-width: 800px;
       width: 90%;
       background-color: #fff;
+      color: #000;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       padding: 20px;
-      position: relative;
-      user-select: none; /* disables text selection */
-      display: none; /* hidden until generated */
+      margin-top: 20px;
+      display: none; /* initially hidden */
     }
-    #case-image {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin-bottom: 20px;
+    h2 {
+      color: #007BFF;
     }
-    .case-paragraph {
-      margin-bottom: 15px;
-      line-height: 1.6;
-    }
-    /* Next button positioned at the bottom-right */
-    #nextButton {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
+    .logout-button {
+      margin-top: 20px;
       padding: 10px 20px;
-      background-color: #007BFF;
-      color: #fff;
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
       border: none;
-      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
-      font-size: 14px;
+      border-radius: 5px;
+      text-decoration: none;
     }
-    #nextButton:hover {
-      background-color: #0056b3;
+    .logout-button:hover {
+      background-color: var(--accent-color);
     }
-    h1{
-      color:#007BFF;
+    .generate-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .generate-button:hover {
+      background-color: var(--accent-color);
+    }
+    /* Hide all topic sections initially */
+    .topic-section {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div id="background-casestudy">
-    <div id="nav-bar-casestudy">
-      <h1>CASE STUDY</h1>
+  <h1>CASE STUDY</h1>
+  
+  <!-- Generate Topic button -->
+  <button class="generate-button" onclick="generateTopic()">Generate Topic</button>
+  
+  <!-- Container for topics -->
+  <div id="case-container">
+    <div id="PS-1" class="topic-section">
+      <h2>Transportation and Logistics</h2>
+      <h3>Introduction</h3>
+      <p>
+        The transportation and logistics industry faces challenges such as <em>delayed deliveries, inefficient fleet management, cargo theft, and high fuel costs.</em>
+        Traditional tracking methods often lack <strong>real-time visibility</strong> and fail to optimize routes, leading to increased operational costs. 
+        An <strong>IoT-based smart logistics system</strong> helps businesses improve <em>fleet tracking, cargo security, and supply chain efficiency</em> through real-time monitoring and data-driven decision-making.
+      </p>
+      <h3>Problem Statement</h3>
+      <ul>
+        <li>Delayed deliveries due to poor route planning.</li>
+        <li>Increased fuel costs due to inefficient fleet management.</li>
+        <li>Cargo theft and damage due to a lack of real-time monitoring.</li>
+        <li>Poor inventory management, leading to stock shortages or overstocking.</li>
+      </ul>
     </div>
-    <div id="Section">
-      <!-- Button to generate the case study -->
-      <button id="generateCase">Generate Case</button>
-      <!-- The case study container (hidden initially) -->
-      <div id="case-container">
-        <!-- Image on top (disable right-click on the image too) -->
-        <img id="case-image" src="" alt="Case Image" oncontextmenu="return false;" />
-        <!-- Two paragraphs for content -->
-        <p id="case-paragraph1" class="case-paragraph"></p>
-        <p id="case-paragraph2" class="case-paragraph"></p>
-        <!-- Next button at bottom-right -->
-        <button id="nextButton">Next</button>
-      </div>
+    <div id="PS-2" class="topic-section">
+      <h2>Healthcare Monitoring</h2>
+      <h3>Introduction</h3>
+      <p>
+        Healthcare systems often struggle with real-time patient monitoring, delayed diagnosis, and high hospitalization costs. 
+        Traditional healthcare relies on <strong>manual checkups</strong>, making it difficult to track patients with chronic diseases like <strong>diabetes, heart disease, and hypertension.</strong> 
+        An <strong>IoT-based healthcare monitoring system</strong> helps by continuously monitoring patient vitals, sending real-time alerts, and enabling remote diagnosis, leading to better patient care and early intervention.
+      </p>
+      <h3>Problem Statement</h3>
+      <ul>
+        <li>Lack of real-time monitoring, leading to delayed medical intervention.</li>
+        <li>Limited accessibility, especially for remote patients.</li>
+        <li>High medical costs due to frequent hospital visits.</li>
+        <li>Overburdened healthcare facilities, reducing efficiency in patient care.</li>
+      </ul>
+    </div>
+    <div id="PS-3" class="topic-section">
+      <h2>Urban Waste Management</h2>
+      <h3>Introduction</h3>
+      <p>
+        Urban waste management faces significant challenges, such as overflowing bins, inefficient waste collection, and high operational costs. 
+        Traditional waste management methods often lack <strong>real-time monitoring and optimization</strong>, leading to unnecessary trips, waste overflow, and resource mismanagement. 
+        An <strong>IoT-based smart waste management system</strong> helps cities optimize waste collection, reduce costs, and improve environmental outcomes through real-time monitoring and data-driven decision-making.
+      </p>
+      <h3>Problem Statement</h3>
+      <ul>
+        <li>Overflowing bins and uncollected waste due to inaccurate collection schedules.</li>
+        <li>Increased fuel costs and wasted resources due to inefficient collection routes.</li>
+        <li>Environmental pollution caused by delayed or missed waste collections.</li>
+        <li>Higher operational costs due to lack of real-time data and optimization.</li>
+      </ul>
+    </div>
+    <div id="PS-4" class="topic-section">
+      <h2>Sustainable Agriculture</h2>
+      <h3>Introduction</h3>
+      <p>
+        The agricultural industry faces challenges such as resource wastage, soil degradation, inefficient crop management, and high post-harvest losses. 
+        Traditional farming methods often lack real-time monitoring and fail to optimize resource utilization, leading to reduced productivity and environmental impact. 
+        A <strong>smart, IoT-based sustainable agriculture system</strong> helps farmers improve <strong>crop monitoring, resource efficiency, and yield optimization</strong> through real-time data and automated decision-making.
+      </p>
+      <h3>Problem Statement</h3>
+      <ul>
+        <li>Excessive water consumption due to inefficient irrigation systems.</li>
+        <li>Soil degradation and reduced fertility due to unsustainable farming practices.</li>
+        <li>High post-harvest losses due to poor storage and supply chain inefficiencies.</li>
+        <li>Overuse of chemical inputs, leading to environmental pollution and declining crop health.</li>
+      </ul>
     </div>
   </div>
-  
+
+  <!-- Next button (initially hidden) -->
+  <a href="/logout" class="logout-button" id="next-button" style="display: none;" onclick="removeTabSwitchAndLogout(event)">Next</a>
+  <div style="margin-bottom: 50px;"></div>
+
   <script>
-    // Array holding our two case studies (customize as needed)
-    const caseStudies = [
-      {
-        image: 'images/case1.jpg', // update the path as needed
-        paragraph1:
-          'This is the first paragraph of Case Study 1. It explains the background and context of the case study.',
-        paragraph2:
-          'This is the second paragraph of Case Study 1. It provides further details and insights into the subject matter.'
-      },
-      {
-        image: 'images/case2.jpg', // update the path as needed
-        paragraph1:
-          'This is the first paragraph of Case Study 2. It delves into the challenges and solutions proposed in this case study.',
-        paragraph2:
-          'This is the second paragraph of Case Study 2. It concludes the discussion with final thoughts and outcomes.'
-      }
-    ];
-    
-    let currentCaseIndex = 0;
-    
-    // Get references to DOM elements
-    const generateCaseBtn = document.getElementById("generateCase");
-    const caseContainer = document.getElementById("case-container");
-    const caseImage = document.getElementById("case-image");
-    const caseParagraph1 = document.getElementById("case-paragraph1");
-    const caseParagraph2 = document.getElementById("case-paragraph2");
-    const nextButton = document.getElementById("nextButton");
-    
-    // Function to display the case study based on the current index
-    function displayCaseStudy(index) {
-      const currentCase = caseStudies[index];
-      caseImage.src = currentCase.image;
-      caseParagraph1.innerText = currentCase.paragraph1;
-      caseParagraph2.innerText = currentCase.paragraph2;
+    // Function to randomly display one topic and show the next button
+    function generateTopic() {
+      // Get all topic sections
+      const topics = document.querySelectorAll('.topic-section');
+      // Hide all topics
+      topics.forEach(topic => {
+        topic.style.display = 'none';
+      });
+      // Select a random topic
+      const randomIndex = Math.floor(Math.random() * topics.length);
+      // Show the topics container if it was hidden
+      document.getElementById('case-container').style.display = 'block';
+      // Display only the randomly selected topic
+      topics[randomIndex].style.display = 'block';
+      // Hide the generate button
+      document.querySelector('.generate-button').style.display = 'none';
+      // Show the next button
+      document.getElementById('next-button').style.display = 'inline-block';
     }
-    
-    // When the "Generate Case" button is clicked, show the first case study
-    generateCaseBtn.addEventListener("click", function () {
-      generateCaseBtn.style.display = "none";
-      caseContainer.style.display = "block";
-      displayCaseStudy(currentCaseIndex);
-    });
-    
-    // When "Next" is clicked, either show the next case study or logout if already on the second case
-    nextButton.addEventListener("click", function () {
-      currentCaseIndex++;
-      if (currentCaseIndex < caseStudies.length) {
-        displayCaseStudy(currentCaseIndex);
-      } else {
-        // If on the second (last) case study, redirect to logout route
-        window.location.href = "/logout";
+
+    // Tab switching detection function: alerts and notifies server
+    function handleVisibilityChange() {
+      if (document.hidden) {
+        alert("Tab switching is not allowed!");
+        fetch('/api/switch', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' }
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log("Tab switch count updated:", data);
+          })
+          .catch(error => console.error("Error updating tab switch count:", error));
       }
+    }
+    // Register the visibilitychange event
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Function to remove tab switching detection and then navigate to /logout
+    function removeTabSwitchAndLogout(event) {
+      event.preventDefault();
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.location.href = "/logout";
+    }
+
+    // Disable right-click context menu
+    document.addEventListener("contextmenu", function (event) {
+      event.preventDefault();
+      console.log("Right-click is disabled!");
     });
-    
-    // Additionally, disable text selection and right-click on the entire case container
-    caseContainer.onselectstart = () => false;
-    caseContainer.oncontextmenu = () => false;
+
+    // Disable copying
+    document.addEventListener("copy", function (event) {
+      event.preventDefault();
+      console.log("Copying is not allowed!");
+    });
+
+    // Disable text selection
+    document.addEventListener("selectstart", function (event) {
+      event.preventDefault();
+      console.log("Text selection is disabled!");
+    });
   </script>
 </body>
 </html>

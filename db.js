@@ -82,24 +82,12 @@ async function insertAnswer(username, answer) {
   }
 
 
-  let trackerCounter = 1;
-
-// Function to update an existing row in the trackers table.
-async function updateTrackerAnswer(username, answer) {
-  // Dynamically create the column name (e.g., "Ques1", "Ques2", etc.)
-  const columnName = `Ques${trackerCounter}`;
-  // Always perform an UPDATE query.
-  const updateQuery = `UPDATE trackers SET ${columnName} = ? WHERE Username = ?`;
-  await pool.query(updateQuery, [answer, username]);
-
-  // Move to the next column; reset if greater than 10.
-  if (trackerCounter < 10) {
-    trackerCounter++;
-  } else {
-    trackerCounter = 1; // Optionally, you might want to handle end-of-quiz differently.
+  async function updateTrackerAnswer(username, answer, columnName) {
+    const updateQuery = `UPDATE trackers SET ${columnName} = ? WHERE Username = ?`;
+    await pool.query(updateQuery, [answer, username]);
   }
-}
 
+  
 async function updateDecodeAnswer(username,questionNumber, answer) {
   // Validate questionNumber if necessary (e.g., ensure it is a number between 1 and 10)
   const columnName = `Ques${questionNumber}`;
@@ -143,6 +131,16 @@ async function insertUserIntoTables(username) {
       [username, username]
     );
 
+    // Insert into switch only if not exists
+    await connection.query(
+      `INSERT INTO switch (Username, tabs_switched)
+       SELECT ?, 0 FROM DUAL
+       WHERE NOT EXISTS (
+         SELECT 1 FROM switch WHERE Username = ?
+       )`,
+      [username, username]
+    );
+
     await connection.commit();
   } catch (error) {
     await connection.rollback();
@@ -153,5 +151,12 @@ async function insertUserIntoTables(username) {
 }
 
 
+async function incrementTabSwitch(username) {
+  const query = "UPDATE switch SET tabs_switched = tabs_switched + 1 WHERE Username = ?";
+  const [result] = await pool.query(query, [username]);
+  return result;
+}
 
-module.exports = { getAdminCred,getTeamsCred,insertAnswer,updateMTF,updateTrackerAnswer,updateDecodeAnswer,insertUserIntoTables}; 
+
+
+module.exports = { getAdminCred,getTeamsCred,insertAnswer,updateMTF,updateTrackerAnswer,updateDecodeAnswer,insertUserIntoTables,incrementTabSwitch}; 

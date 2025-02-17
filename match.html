@@ -19,62 +19,67 @@
           <th>Your Answer</th>
         </tr>
         <tr>
-          <td>(a) Resistor</td>
-          <td>(p) Limits current flow</td>
+          <td><img src="/assets/arduino.jpg" alt="Arduino" width="100" height="80"></td>
+          <td>(p) Raspberry Pi</td>
           <td>
             <select id="q1">
               <option value="p">(p)</option>
               <option value="q">(q)</option>
               <option value="r">(r)</option>
               <option value="s">(s)</option>
+              <option value="t">(t)</option>
             </select>
           </td>
         </tr>
         <tr>
-          <td>(b) Capacitor</td>
-          <td>(q) Stores electrical energy</td>
+          <td><img src="/assets/rasberrypi.jpg" alt="Raspberry Pi" width="100" height="80"></td>
+          <td>(q) Arduino</td>
           <td>
             <select id="q2">
               <option value="p">(p)</option>
               <option value="q">(q)</option>
               <option value="r">(r)</option>
               <option value="s">(s)</option>
+              <option value="t">(t)</option>
             </select>
           </td>
         </tr>
         <tr>
-          <td>(c) Inductor</td>
-          <td>(r) Stores energy in a magnetic field</td>
+          <td><img src="/assets/ESP32.jpg" alt="ESP32" width="100" height="80"></td>
+          <td>(r) STM32</td>
           <td>
             <select id="q3">
               <option value="p">(p)</option>
               <option value="q">(q)</option>
               <option value="r">(r)</option>
               <option value="s">(s)</option>
+              <option value="t">(t)</option>
             </select>
           </td>
         </tr>
         <tr>
-          <td>(d) Diode</td>
-          <td>(s) Allows current in one direction</td>
+          <td><img src="/assets/stm32.jpg" alt="STM32" width="100" height="80"></td>
+          <td>(s) DSP Starter Kit</td>
           <td>
             <select id="q4">
               <option value="p">(p)</option>
               <option value="q">(q)</option>
               <option value="r">(r)</option>
               <option value="s">(s)</option>
+              <option value="t">(t)</option>
             </select>
           </td>
         </tr>
         <tr>
-          <td>(e) Fuse</td>
-          <td>(s) Protects against overcurrent</td>
+          <td><img src="/assets/dsp starter kit.jpg" alt="DSP Starter Kit" width="100" height="50"></td>
+          <td>(t) ESP-32</td>
           <td>
             <select id="q5">
               <option value="p">(p)</option>
               <option value="q">(q)</option>
               <option value="r">(r)</option>
               <option value="s">(s)</option>
+              <option value="t">(t)</option>
             </select>
           </td>
         </tr>
@@ -90,62 +95,67 @@
           <th>Your Answer</th>
         </tr>
         <tr>
-          <td>(a) Transistor</td>
-          <td>(p) Amplifies signals</td>
+          <td>(a) WIFI</td>
+          <td>(p) High speed cellular communication for IOT.</td>
           <td>
             <select id="q6">
               <option value="p">(p)</option>
               <option value="q">(q)</option>
               <option value="r">(r)</option>
               <option value="s">(s)</option>
+              <option value="t">(t)</option>
             </select>
           </td>
         </tr>
         <tr>
-          <td>(b) LED</td>
-          <td>(q) Emits light</td>
+          <td>(b) Bluetooth</td>
+          <td>(q) Stores and processes IOT data remotely.</td>
           <td>
             <select id="q7">
               <option value="p">(p)</option>
               <option value="q">(q)</option>
               <option value="r">(r)</option>
               <option value="s">(s)</option>
+              <option value="t">(t)</option>
             </select>
           </td>
         </tr>
         <tr>
-          <td>(c) Transformer</td>
-          <td>(r) Changes voltage levels</td>
+          <td>(c) Zigbee</td>
+          <td>(r) High-speed wireless connectivity</td>
           <td>
             <select id="q8">
               <option value="p">(p)</option>
               <option value="q">(q)</option>
               <option value="r">(r)</option>
               <option value="s">(s)</option>
+              <option value="t">(t)</option>
             </select>
           </td>
         </tr>
         <tr>
-          <td>(d) Fuse</td>
-          <td>(s) Protects against overcurrent</td>
+          <td>(d) 5G</td>
+          <td>(s) Low power mesh network for IOT.</td>
           <td>
             <select id="q9">
               <option value="p">(p)</option>
               <option value="q">(q)</option>
               <option value="r">(r)</option>
               <option value="s">(s)</option>
+              <option value="t">(t)</option>
             </select>
           </td>
         </tr>
         <tr>
-          <td>(e) Fuse</td>
-          <td>(s) Protects against overcurrent</td>
+          <td>(e) Cloud Computing</td>
+          <td>(t) Short range communication between devices</td>
           <td>
             <select id="q10">
               <option value="p">(p)</option>
               <option value="q">(q)</option>
               <option value="r">(r)</option>
               <option value="s">(s)</option>
+              <option value="t">(t)</option>
             </select>
           </td>
         </tr>
@@ -153,56 +163,102 @@
     </div>
   </div>
 
+  <!-- Submit button container -->
   <div id="button">
     <button id="submitBtn">Submit</button>
   </div>
   <p id="result"></p>
 
   <script>
+    // -- Configuration and Tab Switching Detection --
 
-    const ipadd='10.2.106.249';
-    document.getElementById("submitBtn").addEventListener("click", function (event) {
-      event.preventDefault();
+// Global config object
+let config = {};
 
-      // Collecting selected answers for all 10 questions
-      let answers = {
-        resistor: document.getElementById("q1").value,
-        capacitor: document.getElementById("q2").value,
-        inductor: document.getElementById("q3").value,
-        diode: document.getElementById("q4").value,
-        fuse1: document.getElementById("q5").value,
-        transistor: document.getElementById("q6").value,
-        led: document.getElementById("q7").value,
-        transformer: document.getElementById("q8").value,
-        fuse2: document.getElementById("q9").value,
-        fuse3: document.getElementById("q10").value
-      };
+// Fetch configuration (expects /config.json with "ip_address" and "port" keys)
+fetch('/config.json')
+  .then(response => response.json())
+  .then(data => { config = data; })
+  .catch(error => console.error('Error loading config:', error));
 
-      // Wrap the answers in an object with key "answers" (matching your backend)
-      let jsonData = JSON.stringify({ answers });
+// Function to handle tab switching detection
+function handleVisibilityChange() {
+  if (document.hidden) {
+    alert("Tab switching is not allowed!");
+    // Notify server about tab switching
+    fetch('/api/switch', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then(response => response.json())
+      .then(data => console.log("Tab switch count updated:", data))
+      .catch(error => console.error("Error updating tab switch count:", error));
+  }
+}
 
-      // Send data to the server
-      fetch(`http://${ipadd}:7000/match/submit`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: jsonData
-      })
-        .then(response => response.json())
-        .then(data => {
-          // Optional: Log the server response or display it in the UI
-          console.log("Response:", data);
-          document.getElementById("result").innerText = "Response: " + JSON.stringify(data);
+// Attach the visibilitychange event listener
+document.addEventListener("visibilitychange", handleVisibilityChange);
 
-          // Redirect to the next section (GET /case)
-          window.location.href = "/case";
-        })
-        .catch(error => {
-          console.error("Error:", error);
-          document.getElementById("result").innerText = "Error submitting data!";
-        });
+// -- Submit Button and Answer Submission --
+
+// When the submit button is clicked
+document.getElementById("submitBtn").addEventListener("click", function (event) {
+  event.preventDefault();
+
+  // Collect selected answers from the dropdowns
+  let answers = {
+    resistor: document.getElementById("q1").value,
+    capacitor: document.getElementById("q2").value,
+    inductor: document.getElementById("q3").value,
+    diode: document.getElementById("q4").value,
+    fuse1: document.getElementById("q5").value,
+    transistor: document.getElementById("q6").value,
+    led: document.getElementById("q7").value,
+    transformer: document.getElementById("q8").value,
+    fuse2: document.getElementById("q9").value,
+    fuse3: document.getElementById("q10").value
+  };
+
+  // Prepare JSON payload
+  let jsonData = JSON.stringify({ answers });
+
+  // Send data to the server at the /match/submit endpoint
+  fetch(`http://${config.ip_address}:${config.port}/match/submit`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: jsonData
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log("Response:", data);
+      document.getElementById("result").innerText = "Response: " + JSON.stringify(data);
+
+      // Before redirecting, remove the tab switching event listener
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+
+      // Redirect to the next section (the /case page)
+      window.location.href = "/case";
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      document.getElementById("result").innerText = "Error submitting data!";
     });
+});
+
+// -- Disable User Actions --
+document.addEventListener("contextmenu", function (event) {
+  event.preventDefault();
+  console.log("Right-click is disabled!");
+});
+document.addEventListener("copy", function (event) {
+  event.preventDefault();
+  console.log("Copying is not allowed!");
+});
+document.addEventListener("selectstart", function (event) {
+  event.preventDefault();
+  console.log("Text selection is disabled!");
+});
+
   </script>
 </body>
 </html>

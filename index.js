@@ -1,5 +1,5 @@
 
-const { getAdminCred,getTeamsCred, insertAnswer, updateMTF,updateTrackerAnswer,updateDecodeAnswer,insertUserIntoTables} = require('./db');
+const { getAdminCred,getTeamsCred, insertAnswer, updateMTF,updateTrackerAnswer,updateDecodeAnswer,insertUserIntoTables,incrementTabSwitch} = require('./db');
 const express = require('express');
 const cors = require("cors");
 const session = require('express-session');
@@ -8,14 +8,15 @@ const path = require('path');
 
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
 
 app.use(session({
-    secret: 'Mykey', // Replace with a strong secret for production
+    secret: 'Mykey1', // Replace with a strong secret for production
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false } // Use secure: true if serving over HTTPS
   }));
+
+app.use(cors());
 
 // Database query for admin usernames and passwords
 async function Admin() {
@@ -42,7 +43,7 @@ initializeServer();  // Call the function to initialize the server with admin da
 // Serve static files from 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-const port = 7000;
+const port = 8000;
 
 // Define route for root (home page)
 app.get("/", (req, res) => {
@@ -55,29 +56,32 @@ app.get("/login", (req, res) => {
 });
 
 // Route for handling login submission
-app.get('/submit', async (req, res) => {
-    const name = req.query.name;
-    const pass = req.query.password;
-    const teamname = req.app.locals.teamname;
-    const adminname = req.app.locals.adminname;
+app.post('/submit', async (req, res) => {
+  const name = req.body.name;       // Note: Use req.body instead of req.query for POST data
+  const pass = req.body.password;
+  const teamname = req.app.locals.teamname;
+  const adminname = req.app.locals.adminname;
 
-    for (let i = 0; i < teamname.length; i++) {
-        if (name === teamname[i].Username && pass === teamname[i].pass) {
-            req.session.username = name; // Store in session
-            await insertUserIntoTables(name);
-            return res.redirect("/mind");
-        }
-    } 
+  // Check teams
+  for (let i = 0; i < teamname.length; i++) {
+      if (name === teamname[i].Username && pass === teamname[i].pass) {
+          req.session.username = name; // Store in session
+          await insertUserIntoTables(name);
+          return res.redirect("/mind");
+      }
+  } 
 
-    for (let i = 0; i < adminname.length; i++) {
-        if (name === adminname[i].username && pass === adminname[i].pass) {
-            req.session.username = name; // Store in session
-            return res.redirect("/admin");
-        }
-    }
-    
-    return res.redirect("/login");
+  // Check admins
+  for (let i = 0; i < adminname.length; i++) {
+      if (name === adminname[i].username && pass === adminname[i].pass) {
+          req.session.username = name; // Store in session
+          return res.redirect("/admin");
+      }
+  }
+  
+  return res.redirect("/login");
 });
+
 
 
 // Define routes for various pages
@@ -112,6 +116,22 @@ app.get('/logout', (req, res) => {
       }
       res.redirect('/login');
   });
+});
+
+
+app.post("/api/switch", async (req, res) => {
+  const username = req.session.username;
+  if (!username) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+  try {
+    const result = await incrementTabSwitch(username);
+    console.log("Tab switch count updated for", username);
+    return res.json({ message: "Tab switch count updated", result });
+  } catch (error) {
+    console.error("Error updating tab switch count", error);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
 });
  
 
@@ -175,23 +195,31 @@ app.post("/match/submit", async (req, res) => {
     console.log("Received POST request to /api/trackers");
     console.log("Request Body:", req.body);
   
-    const { answer } = req.body;
+    const { answer, questionNumber } = req.body;
     const username = req.session.username;
-
-    if (!answer) {
-      console.log("Error: Missing answer!");
-      return res.status(400).json({ message: "Answer is required" });
+  
+    if (!answer || !questionNumber) {
+      console.log("Error: Missing answer or question number!");
+      return res.status(400).json({ message: "Answer and question number are required" });
     }
   
     try {
-      // Call updateTrackerAnswer to update the existing row
-      await updateTrackerAnswer(username, answer);
+      // Construct the column name using the question number
+      const columnName = `Ques${questionNumber}`;
+      await updateTrackerAnswer(username, answer, columnName);
       console.log("Tracker answer updated successfully for user:", username);
       return res.json({ message: "Tracker answer updated successfully!" });
     } catch (error) {
       console.error("❌ Database Update Error:", error);
       return res.status(500).json({ message: "Internal Server Error" });
     }
+  });
+
+  
+  app.get("/api/trackers/progress", async (req, res) => {
+    // For example purposes, we can assume progress is stored in session or default to 1
+    const currentQuestion = req.session.currentQuestion || 1;
+    res.json({ currentQuestion });
   });
 
   // index.js
@@ -210,7 +238,7 @@ app.post("/api/decode", async (req, res) => {
   
     try {
       const result = await updateDecodeAnswer(username,questionNumber, answer);
-      console.log("Decode table updated successfully for user 'Hunters':", result);
+      console.log(`Decode table updated successfully for user ${username}:`, result);
       return res.json({ message: "Decode answer updated successfully!", result });
     } catch (error) {
       console.error("❌ Database Update Error:", error);
