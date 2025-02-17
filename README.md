@@ -48,13 +48,39 @@ The KIITFEST IOT BAKEOFF Quiz Website is an interactive platform that enabled li
 - **Myself:**  
   I contributed to both the frontend and backend aspects of the project, ensuring overall integration and smooth operation of the website.
 
+## Gallery
+
+Below are some images from the event (replace the image paths with your actual file paths in the repository):
+
+1. **Main Page:**  
+   ![Main Page](https://github.com/Sanjaygenius777/kiitfest8.0_IOT_BAKEOFF/blob/4a1cd3c89cd860bbdb099d4b6e97465e640a30be/main%20iot.png "Main Page")
+
+2. **Login Page:**  
+   ![Login Page]( https://github.com/Sanjaygenius777/kiitfest8.0_IOT_BAKEOFF/blob/5f74ff6111299ac770240a0e5f2d89eb7864ea77/login%20iot.png "Login Page")
+
+3. **Decode:**  
+   ![Decode](https://github.com/Sanjaygenius777/kiitfest8.0_IOT_BAKEOFF/blob/5f74ff6111299ac770240a0e5f2d89eb7864ea77/decode%20iot.png "Decode")
+
+4. **Match:**  
+   ![Match](https://github.com/Sanjaygenius777/kiitfest8.0_IOT_BAKEOFF/blob/5f74ff6111299ac770240a0e5f2d89eb7864ea77/match%20iot.png "MTF")
+
+5. **Case Study:**  
+   ![Case Study](https://github.com/Sanjaygenius777/kiitfest8.0_IOT_BAKEOFF/blob/5f74ff6111299ac770240a0e5f2d89eb7864ea77/case%20iot.png "Case Study")
+
+6. **Tech Trackers:**  
+   ![Tech Trackers]([images/closing_ceremony.jpg](https://github.com/Sanjaygenius777/kiitfest8.0_IOT_BAKEOFF/blob/5f74ff6111299ac770240a0e5f2d89eb7864ea77/trakers.png) "Tech Trackers")
+
 ## Conclusion
 
-The KIITFEST IOT BAKEOFF Quiz Website is a testament to effective collaboration and technical excellence. With live participation from 17 teams, the platform delivered a successful and engaging quiz experience. Special thanks to Arunodoy and Shahriyar for their dedicated contributions, and to everyone who supported this project.
+The KIITFEST IOT BAKEOFF Quiz Website is a testament to effective collaboration and technical excellence. With live participation from 17 teams, the platform delivered a successful and engaging quiz experience. Special thanks to our collaborators, Arunodoy and Shahriyar, for their dedicated contributions, and to everyone who supported this project.
 
 Feel free to explore the repository. If you have any questions, suggestions, or need further details, please open an issue or contact us.
 
 ---
 
 *Happy Quizzing!*
+
+## Work in Progress
+
+Please note that this project is still a work in progress. We are actively developing new features, refining the user experience, and addressing feedback to make the KIITFEST IOT BAKEOFF Quiz Website even better. Stay tuned for updates!
 
