@@ -76,11 +76,13 @@ The KIITFEST IOT BAKEOFF Quiz Website is a testament to effective collaboration 
 
 Feel free to explore the repository. If you have any questions, suggestions, or need further details, please open an issue or contact us.
 
+## Work in Progress
+
+Please note that this project is still a work in progress. We are actively developing new features, refining the user experience, and addressing feedback to make the KIITFEST IOT BAKEOFF Quiz Website even better. Stay tuned for updates!
+
+
 ---
 
 *Happy Quizzing!*
 
-## Work in Progress
-
-Please note that this project is still a work in progress. We are actively developing new features, refining the user experience, and addressing feedback to make the KIITFEST IOT BAKEOFF Quiz Website even better. Stay tuned for updates!
 
