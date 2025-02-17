@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
-    secret: 'Mykey1', // Replace with a strong secret for production
+    secret: , // Replace with a strong secret for production
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false } // Use secure: true if serving over HTTPS
