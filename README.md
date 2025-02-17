@@ -27,9 +27,9 @@ The KIITFEST IOT BAKEOFF Quiz Website is an interactive platform that enabled li
 - **Backend:**  
   Node.js, Express.js
 - **Database:**  
-  Secure database system for storing questions, user data, and scores.
+  MySQL
 - **Deployment:**  
-  Live deployment with real-time capabilities.
+  Live deployment.
 
 ## Implementation Details
 
