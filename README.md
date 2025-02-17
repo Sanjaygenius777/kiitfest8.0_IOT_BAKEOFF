@@ -12,48 +12,59 @@ The KIITFEST IOT BAKEOFF Quiz Website is an interactive platform that enabled li
   Real-time quiz rounds with timed questions and immediate feedback.
 
 - **Responsive Design:**  
-  The website is optimized for both desktop and mobile devices, ensuring a seamless user experience on all platforms.
+  Optimized for both desktop and mobile devices, ensuring a seamless user experience.
 
 - **Robust Architecture:**  
-  The system efficiently handles multiple concurrent users and real-time data processing to maintain reliability during the live event.
+  Efficiently handles multiple concurrent users and real-time data processing using **Node.js** and **Express.js**.
 
 - **Comprehensive Analytics:**  
-  Detailed analytics provide insights into team performance and overall engagement.
+  Detailed insights into team performance and overall engagement.
+
+## Tech Stack
+
+- **Frontend:**  
+  HTML, CSS, JavaScript
+- **Backend:**  
+  Node.js, Express.js
+- **Database:**  
+  Secure database system for storing questions, user data, and scores.
+- **Deployment:**  
+  Live deployment with real-time capabilities.
 
 ## Implementation Details
 
 - **Frontend:**  
-  Developed using HTML, CSS, and JavaScript, the user interface is intuitive and engaging, allowing participants to interact easily with the quiz platform.
+  Developed using HTML, CSS, and JavaScript, the interface is intuitive and engaging for participants.
 
 - **Backend:**  
-  The backend manages quiz logic, user sessions, scoring, and real-time updates, ensuring that the system remains responsive and data remains consistent during live operations.
+  Built with **Node.js** and **Express.js**, the backend manages quiz logic, user sessions, scoring, and real-time updates. This combination ensures a responsive system with consistent data flow during live operations.
 
 - **Database Integration:**  
-  A secure database stores quiz questions, participant information, and scores, ensuring data integrity and reliability throughout the event.
+  A secure database stores quiz questions, participant information, and scores, ensuring data integrity.
 
 - **Live Deployment:**  
-  After extensive testing, the platform was deployed live and successfully supported 17 teams during the event.
+  Deployed successfully to support 17 teams during the event, with robust performance under live conditions.
 
 ## Collaborators
 
 - **Arunodoy (Backend):**  
-  Focused on backend development, contributing significantly to the robustness and reliability of the server-side functionality.
+  Focused on backend development, contributing to the reliability of server-side functionality.
 
 - **Shahriyar (Frontend):**  
-  Concentrated on frontend development, ensuring that the user interface was both intuitive and visually appealing.
+  Designed the frontend to ensure an intuitive and visually appealing interface.
 
 - **Myself:**  
-  I contributed to both the frontend and backend aspects of the project, ensuring overall integration and smooth operation of the website.
+  Contributed to both frontend and backend integration for seamless operation.
 
 ## Gallery
 
-Below are some images from the event (replace the image paths with your actual file paths in the repository):
+Below are images from the event:
 
 1. **Main Page:**  
    ![Main Page](https://github.com/Sanjaygenius777/kiitfest8.0_IOT_BAKEOFF/blob/4a1cd3c89cd860bbdb099d4b6e97465e640a30be/main%20iot.png "Main Page")
 
 2. **Login Page:**  
-   ![Login Page]( https://github.com/Sanjaygenius777/kiitfest8.0_IOT_BAKEOFF/blob/5f74ff6111299ac770240a0e5f2d89eb7864ea77/login%20iot.png "Login Page")
+   ![Login Page](https://github.com/Sanjaygenius777/kiitfest8.0_IOT_BAKEOFF/blob/5f74ff6111299ac770240a0e5f2d89eb7864ea77/login%20iot.png "Login Page")
 
 3. **Decode:**  
    ![Decode](https://github.com/Sanjaygenius777/kiitfest8.0_IOT_BAKEOFF/blob/5f74ff6111299ac770240a0e5f2d89eb7864ea77/decode%20iot.png "Decode")
@@ -69,17 +80,12 @@ Below are some images from the event (replace the image paths with your actual f
 
 ## Conclusion
 
-The KIITFEST IOT BAKEOFF Quiz Website is a testament to effective collaboration and technical excellence. With live participation from 17 teams, the platform delivered a successful and engaging quiz experience. Special thanks to our collaborators, Arunodoy and Shahriyar, for their dedicated contributions, and to everyone who supported this project.
-
-Feel free to explore the repository. If you have any questions, suggestions, or need further details, please open an issue or contact us.
+The KIITFEST IOT BAKEOFF Quiz Website demonstrates effective collaboration and technical excellence. With live participation from 17 teams, the platform delivered an engaging experience. Special thanks to Arunodoy and Shahriyar for their contributions.
 
 ## Work in Progress
 
-Please note that this project is still a work in progress. We are actively developing new features, refining the user experience, and addressing feedback to make the KIITFEST IOT BAKEOFF Quiz Website even better. Stay tuned for updates!
-
+This project is actively being developed. We are refining features, improving the user experience, and incorporating feedback. Stay tuned for updates!
 
 ---
 
 *Happy Quizzing!*
-
-
