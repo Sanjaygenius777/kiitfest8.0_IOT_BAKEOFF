@@ -68,7 +68,7 @@ Below are some images from the event (replace the image paths with your actual f
    ![Case Study](https://github.com/Sanjaygenius777/kiitfest8.0_IOT_BAKEOFF/blob/5f74ff6111299ac770240a0e5f2d89eb7864ea77/case%20iot.png "Case Study")
 
 6. **Tech Trackers:**  
-   ![Tech Trackers]([images/closing_ceremony.jpg](https://github.com/Sanjaygenius777/kiitfest8.0_IOT_BAKEOFF/blob/5f74ff6111299ac770240a0e5f2d89eb7864ea77/trakers.png) "Tech Trackers")
+   ![Tech Trackers](https://github.com/Sanjaygenius777/kiitfest8.0_IOT_BAKEOFF/blob/5f74ff6111299ac770240a0e5f2d89eb7864ea77/trakers.png "Tech Trackers")
 
 ## Conclusion
 
